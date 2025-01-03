@@ -7,8 +7,10 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Categories from './pages/Categories'
 import Caterers from "./pages/Caterers"
+import MenuPage from "./pages/MenuPage"
 import { useAuthStore } from './store/authStore'
 import { Loader } from 'lucide-react'
+import Cart from "./components/Cart"
 
 const App = () => {
 
@@ -41,6 +43,8 @@ const App = () => {
         <Route path ='/categories' element={<Categories/>}/>
         {/* <Route path="/caterers" element={<Caterors/>}/> */}
         <Route path="/caterers/:categoryId" element={<Caterers/>}/>
+        <Route path="/caterers/:categoryId/:catererId/menu" element={<MenuPage/>}/>
+        <Route path="/cart" element={<Cart/>}/>
         
       </Routes>
       <Footer/>

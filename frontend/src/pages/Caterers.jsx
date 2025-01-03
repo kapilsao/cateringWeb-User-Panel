@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { FaSearch, FaSlidersH, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { ChevronRight } from 'lucide-react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Caterors() {
   const [visibleCaterers, setVisibleCaterers] = useState();
   const [caterers , setCaterers] = useState([]);
   const {categoryId} = useParams()
+  const navigate = useNavigate()
   // const caterors = [
   //   'Maharashtrian Thali', 'Punjabi Thali', 'Gujarati Thali', 'South Indian Thali',
   //   'Bengali Thali', 'Rajasthani Thali', 'Kashmiri Thali', 'Kerala Thali',
@@ -41,6 +43,10 @@ export default function Caterors() {
   const handleSeeMore = () => {
     setVisibleCaterers((prev) => prev + 2);
   };
+  const handleCardClick = (id) => {
+    navigate(`/caterers/${categoryId}/${id}/menu`);// Navigate to the route with the card's ID
+  };
+
 
   
 
@@ -69,7 +75,8 @@ export default function Caterors() {
           {caterers.slice(0, visibleCaterers).map((cateror, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden text-center transform transition-transform duration-300 hover:scale-105">
+              className="bg-white rounded-lg shadow-lg overflow-hidden text-center transform transition-transform duration-300 hover:scale-105"
+              onClick={() => handleCardClick(cateror._id)}>
               <img
                 src="/burger.png" // Replace with actual category image URL
                 alt={cateror.name}
@@ -99,15 +106,3 @@ export default function Caterors() {
 }
 
 
-
-// git init
-// git add README.md
-// git commit -m "first commit"
-// git branch -M main
-// git remote add origin https://github.com/kapilsao/cateringWeb-User-Panel.git
-// git push -u origin main
-
-
-// git remote add origin https://github.com/kapilsao/cateringWeb-User-Panel.git
-// git branch -M main
-// git push -u origin main

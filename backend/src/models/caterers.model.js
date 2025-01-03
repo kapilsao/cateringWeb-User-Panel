@@ -17,10 +17,12 @@ const catererSchema = new mongoose.Schema({
       required: true,
     
   },
-  menu: {
-    type: Array, // List of menu items
-    required: true,
-  },
+  menu:[
+    {
+      name: { type: String, required: true },
+      price: { type: Number, required: true },
+    },
+  ],
 });
 
 const Caterer = mongoose.model('Caterer', catererSchema);
