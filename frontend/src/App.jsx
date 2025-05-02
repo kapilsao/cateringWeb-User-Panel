@@ -11,7 +11,13 @@ import MenuPage from "./pages/MenuPage"
 import { useAuthStore } from './store/authStore'
 import { Loader } from 'lucide-react'
 import Cart from "./components/Cart"
-
+import ConfirmOrder  from './pages/CnfOrder'
+import CartPage from './pages/CartPage'
+import UserProfile from './pages/ProfilePage'
+import ContactPage from './pages/contactPage'
+import RatingForm from './pages/RatingForm'
+import RequestReset from './pages/forgotpasswordPage'
+import ResetPassword from './pages/resetPassword'
 const App = () => {
 
   // const {authUser , checkAuth , isCheckingAuth} = useAuthStore()
@@ -44,7 +50,16 @@ const App = () => {
         {/* <Route path="/caterers" element={<Caterors/>}/> */}
         <Route path="/caterers/:categoryId" element={<Caterers/>}/>
         <Route path="/caterers/:categoryId/:catererId/menu" element={<MenuPage/>}/>
-        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/cart" element={<CartPage/>}/>
+        <Route path='/cnf' element={<ConfirmOrder/>}/>
+        <Route path='/profile' element = {<UserProfile/>}/>
+        <Route path='/contact' element = {<ContactPage/>}/>
+        <Route path='/rating' element = {<RatingForm/>}/>
+        <Route path='/forgot-password' element={<RequestReset/>}/>
+        <Route path='/reset-password'  element={<ResetPassword/>}/>
+
+
+
         
       </Routes>
       <Footer/>

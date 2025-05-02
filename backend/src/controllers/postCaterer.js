@@ -3,9 +3,9 @@ import Caterer from "../models/caterers.model.js"
 
 export const postCaterer = async (req,res)=>{
 
-    const {name , categoryId , categoryName , menu } = req.body;
+    const {name , categoryId , categoryName , menu , minQuantity , ratings } = req.body;
     try {
-             if (!name || !categoryId || !categoryName || !menu) 
+             if (!name || !categoryId || !categoryName || !menu || !minQuantity) 
             return res.status(400).json({ message: "All fields are required" });
         
 
@@ -13,7 +13,9 @@ export const postCaterer = async (req,res)=>{
                 name,
                 categoryId,
                 categoryName:categoryName,
-                menu
+                menu,
+                minQuantity,
+                ratings
             });
 
               if (newCaterer) await newCaterer.save();
@@ -23,6 +25,8 @@ export const postCaterer = async (req,res)=>{
                 name: newCaterer.name,
                 categoryName: newCaterer.categoryName,
                 menu: newCaterer.menu,
+                minQuantity: newCaterer.minQuantity,
+                ratings:newCaterer.ratings
               });
 
 

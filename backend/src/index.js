@@ -6,7 +6,8 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import categoryRoute from './routes/category.route.js'
 import catererRoutes from "./routes/catererRoutes.js"
-
+import RatingRoutes from './routes/rating.route.js'
+import userRoutes from './routes/user.route.js'
 dotenv.config()
 const PORT = process.env.PORT || 5001
 const app = express()
@@ -21,6 +22,8 @@ app.use(cors({
 app.use('/api/auth', authRoutes )
 app.use('/api', categoryRoute)
 app.use('/api',catererRoutes)
+app.use('/api/user' , userRoutes )
+app.use('/api/rating' ,RatingRoutes )
 
 
 app.listen( PORT , ()=>{

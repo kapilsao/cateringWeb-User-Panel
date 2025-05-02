@@ -115,6 +115,7 @@
 
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -161,7 +162,9 @@ export default function Navbar() {
 
         {/* Profile Icon */}
         <div className="text-2xl md:text-3xl text-gray-800 cursor-pointer">
+          <Link to='/profile'>
           <FaUserCircle />
+          </Link>
         </div>
       </div>
     </header>

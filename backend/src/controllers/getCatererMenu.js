@@ -7,7 +7,7 @@ export const getCatererMenu = async (req , res)=>{
         const response = await Caterer.findOne({
             _id: catererId,
             categoryId: categoryId, // Ensure the categoryId matches
-          }, { name: 1, menu: 1 }); // Only return name and menu fields
+          }, { name: 1, menu: 1 , minQuantity:1}); // Only return name and menu fields
       
           if (!response) {
             return res.status(404).json({ message: "caterer not found or does not belong to this category" });
@@ -17,6 +17,7 @@ export const getCatererMenu = async (req , res)=>{
           res.status(200).json({
             CatererName: response.name,
             menu: response.menu,
+            minQuantity: response.minQuantity
           });
 
         

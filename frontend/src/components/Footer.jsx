@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart, Home, MessageCircle, ShoppingBag, User } from 'lucide-react'
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -22,7 +23,9 @@ const Footer = () => {
               d="M7.5 9H16.5M9.75 12H14.25M10.5 15H13.5M4.5 9.75v-1.5c0-2.485 2.015-4.5 4.5-4.5h6c2.485 0 4.5 2.015 4.5 4.5v1.5c0 1.086-.386 2.083-1.029 2.855M3 21l4.5-4.5"
             />
           </svg> */}
+          <Link to='/contact'>
                       <MessageCircle  className="h-6 w-6" />
+          </Link>
 
         </div>
 
@@ -64,7 +67,9 @@ const Footer = () => {
               d="M3 10.18L12 4l9 6.18V21a2 2 0 01-2 2H5a2 2 0 01-2-2V10.18z"
             />
           </svg> */}
+          <Link to='/categories'>
           <Home className="h-6 w-6" />
+          </Link>
         </div>
 
         {/* Shopping Bag Icon */}
@@ -83,7 +88,9 @@ const Footer = () => {
               d="M16 11V7a4 4 0 00-8 0v4M5 11h14M6 19h12a2 2 0 002-2v-7H4v7a2 2 0 002 2z"
             />
           </svg> */}
+          <Link to='/cart'>
           <ShoppingBag className="h-6 w-6 rounded-full" />
+          </Link>
         </div>
 
         {/* Divider */}
@@ -105,7 +112,9 @@ const Footer = () => {
               d="M16.5 12.75a4.5 4.5 0 01-9 0M12 14.25v4.5M9 15H15"
             />
           </svg> */}
+          <Link to='/profile'>
           <User className="h-6 w-6" />
+          </Link>
         </div>
       </div>
     </div>

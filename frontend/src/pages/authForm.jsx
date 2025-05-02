@@ -48,6 +48,8 @@ export default function AuthForm() {
         
         //  login(data);
         console.log('Log-In Success:', response.data);
+        localStorage.setItem("UsersEmail" ,response.data.email)
+        localStorage.setItem("User_id", response.data._id)
         navigate('/categories');
 
       }
@@ -61,6 +63,10 @@ export default function AuthForm() {
   const toggleMode = () => {
     navigate(isSignUpPage ? '/login' : '/signup');
   };
+
+  const handleForgotPass =()=>{
+    navigate('/forgot-password')
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-purple-500 to-pink-500">
@@ -123,6 +129,12 @@ export default function AuthForm() {
           onClick={toggleMode}
         >
           {isSignUpPage ? "Already have an account? LogIn" : "Don't have an account? Sign Up"}
+        </button>
+        <button
+          className="text-indigo-500 underline w-full text-center mt-4"
+          onClick={handleForgotPass}
+        >
+          {isSignUpPage ? "Already have an account? LogIn" : "Forgot password"}
         </button>
       </div>
     </div>
